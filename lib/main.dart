@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jinrizaixian/pages/main_page.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'flutter_jinrizaixian',
+      title: 'flutter_share',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: new ThemeData(
         primaryColor: Colors.green
       ),
       home: MainPage()

@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CategoryPage extends StatefulWidget {
-  CategoryPage({Key key}) : super(key: key);
+class CategoryPage extends StatelessWidget {
+  const CategoryPage({Key key}) : super(key: key);
 
-  _CategoryPageState createState() => _CategoryPageState();
-}
-
-class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('列表页')
-      ),
-      body: Text('category_page'),
+    return Container(
+      child: Text('CategoryPage'),
     );
   }
 }

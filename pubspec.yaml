@@ -29,6 +29,8 @@ dev_dependencies:
     sdk: flutter
   flutter_screenutil: ^0.5.1
   flutter_swiper: ^1.1.4
+  dio: ^2.0.7
+  flutter_easyrefresh: ^1.2.7
 
 
 # For information on the generic Dart part of this file, see the
@@ -51,6 +53,9 @@ flutter:
     - lib/assets/imgs/xi.jpeg
     - lib/assets/imgs/te.jpeg
     - lib/assets/imgs/jin.jpeg
+    - lib/assets/imgs/taobao.jpg
+    - lib/assets/imgs/jd.jpeg
+    - lib/assets/imgs/sao.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

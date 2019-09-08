@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_jinrizaixian/textpage/tabbar_wt.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:flutter_jinrizaixian/textpage/wrap_wt.dart';
-import 'package:flutter_jinrizaixian/textpage/stack_wt.dart';
-import 'package:flutter_jinrizaixian/textpage/aspectRatio.dart';
-import 'package:flutter_jinrizaixian/textpage/container_text.dart';
-import 'package:flutter_jinrizaixian/textpage/imagenetwork.dart';
-import 'package:flutter_jinrizaixian/textpage/listview_wt.dart';
-import 'package:flutter_jinrizaixian/textpage/gridview_wt.dart';
-import 'package:flutter_jinrizaixian/textpage/column_row.dart';
-
-import 'package:flutter_jinrizaixian/pages/home_page.dart';
 import 'package:flutter_jinrizaixian/pages/category_page.dart';
-import 'package:flutter_jinrizaixian/pages/cart_page.dart';
+import 'package:flutter_jinrizaixian/pages/home_page.dart';
+import 'package:flutter_jinrizaixian/pages/notice_page.dart';
 import 'package:flutter_jinrizaixian/pages/member_page.dart';
+import 'package:flutter_jinrizaixian/widget/MyDrawer.dart';
 
 class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
@@ -24,64 +14,86 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  // 当前页面索引值
+
   int currentIndex = 0;
-  // 当前页面
+  
   Widget currentPage;
-  // 页面列表
-  final List<Widget> pagesList = [
-    TabBarWt(),
-    // WrapWt(),
-    // AspectRatioWt(),
-    // StackWt(),
-    // ColumnRow(),
-    // GridViewWt(),
-    // ListViewWt(),
-    // ImageNetwork(),
-    // ContainerText(),
-    // HomePage(),
+
+  List<Widget> pageLists = [
+    HomePage(),
+    NoticesPage(),
     CategoryPage(),
-    CartPage(),
     MemberPage()
   ];
 
-  List<BottomNavigationBarItem> bottomNav = [
+  List<BottomNavigationBarItem>  bottomNavigationBarItem =[
     BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.home),
-      title: Text('首页')
+      icon: Icon(Icons.home),
+      title: Text('首页'),
     ),
     BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.search),
-      title: Text('搜索')
+      icon: Icon(Icons.notifications),
+      title: Text('公告'),
     ),
     BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.shopping_cart),
-      title: Text('购物车')
+      icon: Icon(Icons.list),
+      title: Text('分类'),
     ),
     BottomNavigationBarItem(
-      icon: Icon(CupertinoIcons.profile_circled),
-      title: Text('会员中心')
-    )
+      icon: Icon(Icons.person),
+      title: Text('个人中心'),
+    ),
   ];
+
+  @override
+  void initState() { 
+    currentPage = pageLists[currentIndex];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
+      // appBar: AppBar(
+      //   title: Text('首页分析'),
+      //   actions: <Widget>[
+      //     IconButton(
+      //       icon: Icon(Icons.file_download),
+      //       onPressed: () {
+      //         print('aaa');
+      //       }
+      //     ),
+      //     IconButton(
+      //       icon: Icon(Icons.share),
+      //       onPressed: () {
+      //         print('bbb');
+      //       }
+      //     ),
+      //   ],
+      //   // leading: IconButton(
+      //   //   icon: Icon(Icons.menu),
+      //   //   onPressed: (){
+      //   //     print('ccc');
+      //   //   },
+      //   // ),
+      // ),
+      drawer: MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: bottomNav,
+        items: bottomNavigationBarItem,
         currentIndex: currentIndex,
-        onTap: (index) {
+        onTap: (int index) {
           setState(() {
             currentIndex = index;
-            currentPage = pagesList[index];
+            currentPage = pageLists[index];
           });
-        }
+        },
       ),
       body: IndexedStack(
         index: currentIndex,
-        children: pagesList,
-      ),
+        children: pageLists,
+      )
     );
   }
 }

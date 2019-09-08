@@ -1,189 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_jinrizaixian/pages/member_page.dart';
+import 'package:flutter_jinrizaixian/http/http_url.dart';
 import 'package:flutter_jinrizaixian/widget/MyDrawer.dart';
 import 'package:flutter_jinrizaixian/widget/SwiperWt.dart';
 import 'package:flutter_jinrizaixian/widget/TopNavWt.dart';
+import 'package:flutter_jinrizaixian/widget/goodsListWt.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
 
-  _HomePageState createState() => _HomePageState();
-}
+class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
 
-class _HomePageState extends State<HomePage> {
-
-  List swiperList = [
-    'https://img.alicdn.com/tfs/TB15mRQeAY2gK0jSZFgXXc5OFXa-750-291.jpg_Q90.jpg',
-    'https://img.alicdn.com/tfs/TB1PHweemf2gK0jSZFPXXXsopXa-750-291.jpg_Q90.jpg',
-    'https://img.alicdn.com/tfs/TB13vIlerj1gK0jSZFuXXcrHpXa-750-291.jpg_Q90.jpg',
-    'https://gw.alicdn.com/tfs/TB1fwKYexv1gK0jSZFFXXb0sXXa-750-291.jpg_Q90.jpg',
-    'https://gw.alicdn.com/tfs/TB1x2Qlerj1gK0jSZFOXXc7GpXa-750-291.jpg_Q90.jpg',
-    'https://img.alicdn.com/tfs/TB1kqEiepY7gK0jSZKzXXaikpXa-750-291.jpg_Q90.jpg'
-  ];
-
-  List topNavList = [
-    {
-      'image': 'https://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408111959_2837.png',
-      'txt': '易购'
-    }, {
-      'image': 'https://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408112010_4489.png',
-      'txt': '超市'
-    }, {
-      'image': 'https://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408112053_8191.png',
-      'txt':'国际'
-    }, {
-      'image': 'https://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408113102_1595.png',
-      'txt': '聚划算'
-    }, {
-      'image': 'https://images.baixingliangfan.cn/firstCategoryPicture/20180408/20180408113048_1276.png',
-      'txt': '分类'
-    }, {
-      'image': 'https://img.alicdn.com/bao/uploaded/i3/725677994/O1CN01alnMEY28vIhsHhZJQ_!!725677994.jpg_160x160q90.jpg',
-      'txt': '进口'
-    }, {
-      'image': 'https://img.alicdn.com/bao/uploaded/i2/725677994/O1CN01hqHk7n28vIhYtR3XR_!!725677994.jpg_160x160q90.jpg',
-      'txt': '材料'
-    }, {
-      'image': 'https://img.alicdn.com/bao/uploaded/i4/725677994/O1CN01lXf58428vIhnIpzmd_!!725677994.jpg_160x160q90.jpg',
-      'txt': '洗护'
-    }
-  ];
-  
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text('首页'),
-    //     centerTitle: true,
-    //     actions: <Widget>[
-    //       IconButton(
-    //         icon: Icon(Icons.search),
-    //         onPressed: () {
-    //           Navigator.of(context).push(
-    //             MaterialPageRoute(
-    //               builder: (context) => MemberPage()
-    //             )
-    //           );
-    //           print('点击了搜索');
-    //         },
-    //       ),
-    //     ],
-    //     leading: Icon(Icons.ac_unit),
-    //   ),
-    //   drawer: MyDrawer(),
-    //   body: ListView(
-    //     children: <Widget>[
-    //       SwiperWt(swiperList: swiperList),
-    //       // TopNavWt(topNavList: topNavList),
-    //       TopNavWt(),
-    //       Container(
-    //         child: Text('aa')
-    //       )
-    //     ],
-    //   ),
-    // );
-    return DefaultTabController(
-      length: 7,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            children: <Widget>[
-              Expanded(
-                child: TabBar(
-                  indicatorColor: Colors.white,
-                  isScrollable: true,
-                  tabs: <Widget>[
-                    Tab(text:'热门'),
-                    Tab(text:'热门'),
-                    Tab(text:'热门'),
-                    Tab(text:'热门'),
-                    Tab(text:'热门'),
-                    Tab(text:'热门'),
-                    Tab(text:'热门2'),
-                  ],
-                ),
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('首页分享'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              print('search');
+            }
           ),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => MemberPage()
-                  )
-                );
-                print('点击了搜索');
-              },
-            ),
-          ],
-          // leading: Icon(Icons.ac_unit),
-          bottom: TabBar(
-            isScrollable: true,
-            tabs: <Widget>[
-              Tab(text:'热门'),
-              Tab(text:'热门'),
-              Tab(text:'热门'),
-              Tab(text:'热门'),
-              Tab(text:'热门'),
-              Tab(text:'热门'),
-              Tab(text:'热门2'),
-            ],
-          )
-        ),
-        drawer: MyDrawer(),
-        body: TabBarView(
-          children: <Widget>[
-            ListTile(
-              title: Text('aaa'),
-            ),
-            ListTile(
-              title: Text('bb'),
-            ),
-            ListTile(
-              title: Text('aaa'),
-            ),
-            ListTile(
-              title: Text('aaa'),
-            ),
-            ListTile(
-              title: Text('aaa'),
-            ),
-            ListTile(
-              title: Text('aaa'),
-            ),
-            ListTile(
-              title: Text('aaa'),
-            ),
-          ],
-        )
+        ],
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   onPressed: (){
+        //     print('ccc');
+        //   },
+        // ),
+      ),
+      // body: Container(
+      //   height: ScreenUtil().setHeight(300.0),
+      //   child: Swiper(
+      //     itemBuilder: (BuildContext context,int index){
+      //       return new Image.network("http://via.placeholder.com/350x150",fit: BoxFit.fill,);
+      //     },
+      //     itemCount: 3,
+      //     pagination: new SwiperPagination(),
+      //     control: new SwiperControl(),
+      //   ),
+      // ),
+      drawer: MyDrawer(),
+      body: FutureBuilder(
+        future: getShareMockData(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              // 请求失败，显示错误
+              return Text("Error: ${snapshot.error}");
+            } else {
+              // 请求成功，显示数据
+              List<String> swiperList = [];
+              snapshot.data.forEach((item) {
+                swiperList.add(item['PICTURE_COMPERSS_PATH']);
+              });
+              List<Map> topNavList = [];
+              snapshot.data.forEach((item) {
+                topNavList.add({
+                  'name': item['NAME'],
+                  'image': item['IMAGE1']
+                });
+              });
+              return ListView(
+                children: <Widget>[
+                  SwiperWt(swiperList: swiperList),
+                  TopNavWt(topNavList: topNavList),
+                  GoodsListWt()
+                ],
+              );
+              
+              // return Text("Contents: ${snapshot.data}");
+            }
+          } else {
+            // 请求未结束，显示loading
+            return Center(
+              child: CircularProgressIndicator()
+            );
+          }
+        },
       )
     );
   }
 }
-
-
-// class SwiperWt extends StatelessWidget {
-//   final List swiperList;
-
-//   const SwiperWt({Key key, this.swiperList}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     List swiperList = [
-//       'https://img.alicdn.com/tfs/TB15mRQeAY2gK0jSZFgXXc5OFXa-750-291.jpg_Q90.jpg',
-//       'https://img.alicdn.com/tfs/TB1PHweemf2gK0jSZFPXXXsopXa-750-291.jpg_Q90.jpg',
-//       'https://img.alicdn.com/tfs/TB13vIlerj1gK0jSZFuXXcrHpXa-750-291.jpg_Q90.jpg',
-//       'https://gw.alicdn.com/tfs/TB1fwKYexv1gK0jSZFFXXb0sXXa-750-291.jpg_Q90.jpg',
-//       'https://gw.alicdn.com/tfs/TB1x2Qlerj1gK0jSZFOXXc7GpXa-750-291.jpg_Q90.jpg',
-//       'https://img.alicdn.com/tfs/TB1kqEiepY7gK0jSZKzXXaikpXa-750-291.jpg_Q90.jpg'
-//     ];
-//     return Column(
-//       children: swiperList.map((item) {
-//         return Image.network(item);
-//       }).toList(),
-//     );
-//   }
-// }
