@@ -74,7 +74,9 @@ class HomePage extends StatelessWidget {
           } else {
             // 请求未结束，显示loading
             return Center(
-              child: CircularProgressIndicator()
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(Colors.green),   // 进度条颜色设置
+              )
             );
           }
         },

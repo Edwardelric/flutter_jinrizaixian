@@ -1,16 +1,19 @@
 import './http.dart';
-// import 'dart:io';
-// import 'package:dio/dio.dart';
+
+import 'package:flutter_jinrizaixian/mock/getShareMockData.dart';
+import 'package:flutter_jinrizaixian/mock/getCategoryData.dart';
 
 const domainUrl = 'https://www.easy-mock.com/mock/5d5ba089af6abb3d1b4270d1/api';
 
 // 分享使用的请求数据                   
 Future getShareMockData() async {
-  return await HttpUtil().post('${domainUrl}/fluttersharedata#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
+  return GetShareMockDataJson().data;
+  // return await HttpUtil().post('${domainUrl}/fluttersharedata#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
 }
 // getCategoryData
 Future getCategoryData(Map data) async {  
-  return await HttpUtil().post('${domainUrl}/homepagecontent#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D', data:data);
+  return GetCategoryDataJson().data;
+  // return await HttpUtil().post('${domainUrl}/homepagecontent#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D', data:data);
 }
 
 

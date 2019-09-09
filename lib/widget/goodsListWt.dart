@@ -53,7 +53,7 @@ class _GoodsListWtState extends State<GoodsListWt> {
 
   Widget _ContainerSingle(data, index) {
     return Container(
-      width: ScreenUtil().setWidth(340.0),
+      width: ScreenUtil().setWidth(330.0),
       margin: EdgeInsets.only(bottom: 10.0),
       decoration: BoxDecoration(
         border: Border.all(width: 1.0, color: Colors.green)
@@ -81,7 +81,6 @@ class _GoodsListWtState extends State<GoodsListWt> {
               Text(
                 '促销价${data.mallPrice}',
                 style: TextStyle(
-                  fontSize: 16,
                   color: Colors.red
                 )
               )

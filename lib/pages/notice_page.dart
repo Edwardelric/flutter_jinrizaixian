@@ -17,7 +17,7 @@ class _NoticesPageState extends State<NoticesPage> {
 
   @override
   void initState() { 
-    this.getNoticesData();
+    this.getNoticesData(true);
     super.initState();
   }
 
@@ -55,25 +55,25 @@ class _NoticesPageState extends State<NoticesPage> {
                 )
               ),
               title: Text(
-                '当前第${curPage}页, 第${index}条'
+                '当前第${curPage}页, 第${noticeLists[index]}条'
               ),
               trailing: Icon(Icons.keyboard_arrow_right),
             );
           },
         ),
         loadMore: () async {
-          print('开始加载更多');
-          this.getNoticesData();
+          print('开始上拉更多');
+          this.getNoticesData(true);
         },
         onRefresh: () async {
-          print('开始加载更多');
-          this.getNoticesData();
-        }
+          print('开始下拉更多');
+          this.getNoticesData(false);
+        },
       ),
     );
   }
 
-  void getNoticesData() {
+  void getNoticesData(bool flag) {
     getCategoryData({}).then((res) {
       GoodsListModel modelRes = GoodsListModel.fromJson(res);
       setState(() {
@@ -82,7 +82,12 @@ class _NoticesPageState extends State<NoticesPage> {
         for(int i = curPage*10; i < curPage*10+10; i++) {
           tmp.add(i);
         }
-        noticeLists.insertAll(0, tmp);
+        if (flag) {
+          noticeLists.addAll(tmp);
+        } else {
+          noticeLists.insertAll(0, tmp);
+        }
+        
         print(noticeLists);
       });
     });

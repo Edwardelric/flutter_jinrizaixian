@@ -1,5 +1,8 @@
 # flutter_jinrizaixian
 
+## install
+  * 
+
 ## Introduce
   * Flutter 是 Google推出并开源的移动应用开发框架，主打跨平台、高保真、高性能
   * 特点
@@ -9,6 +12,7 @@
 ## 环境搭建    
   * flutter doctor
   * flutter run 
+  * flutter pub get  
 
 ## Tips: 
   * Container Widget

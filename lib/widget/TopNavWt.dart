@@ -15,8 +15,8 @@ class TopNavWt extends StatelessWidget {
       child: GridView.builder(
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5, //每行三列
-            childAspectRatio: 1.0 //显示区域宽高相等
+          crossAxisCount: 5, //每行三列
+          childAspectRatio: 1.0 //显示区域宽高相等
         ),
         itemCount: topNavList.length,
         itemBuilder: (context, index) {
