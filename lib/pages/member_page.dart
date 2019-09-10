@@ -5,8 +5,10 @@ class MemberPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('MemberPage'),
+    return Center(
+      child: Container(
+        child: Text('MemberPage'),
+      )
     );
   }
 }
