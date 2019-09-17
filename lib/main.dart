@@ -1,17 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jinrizaixian/pages/main_page.dart';
+import 'package:flutter_jinrizaixian/provide/category_goods_list.dart';
+import 'package:flutter_jinrizaixian/provide/child_category.dart';
+import 'package:flutter_jinrizaixian/routes/application.dart';
+import 'package:flutter_jinrizaixian/routes/routes.dart';
+
+import 'package:provide/provide.dart';
+import './provide/counter.dart';
+
+import 'package:fluro/fluro.dart';
+
 
 void main() {
-  runApp(MyApp());
+  Providers providers = Providers();
+  Counter counter =Counter();
+  ChildCategory childCategory = ChildCategory();
+  CategoryGoodsListProvide categoryGoodsListProvide = CategoryGoodsListProvide();
+  providers
+    ..provide(Provider<Counter>.value(counter));
+
+  providers
+    ..provide(Provider<ChildCategory>.value(childCategory))
+    ..provide(Provider<CategoryGoodsListProvide>.value(categoryGoodsListProvide));
+  // runApp(MyApp());
+  runApp(ProviderNode(child:MyApp(),providers:providers));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
     return MaterialApp(
       title: 'flutter_share',
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: Application.router.generator,
       theme: new ThemeData(
         primaryColor: Colors.green
       ),
