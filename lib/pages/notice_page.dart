@@ -88,7 +88,7 @@ class _NoticesPageState extends State<NoticesPage> {
           noticeLists.insertAll(0, tmp);
         }
         
-        print(noticeLists);
+        // print(noticeLists);
       });
     });
   }

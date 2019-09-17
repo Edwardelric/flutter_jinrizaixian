@@ -18,6 +18,7 @@ Future getCategoryData(Map data) async {
 
 
 
+
 Future getHomePageData() async { // 首页数据
   // return await HttpUtil().post('${domainUrl}/good#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
   return await HttpUtil().post('${domainUrl}/homepage#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
@@ -27,9 +28,9 @@ Future getHomePageData() async { // 首页数据
 //   return await HttpUtil().post('${domainUrl}/homepagecontent#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D', data:data);
 // }
 
-// Future getCategoryData() async { // 商品列表
-//   return await HttpUtil().post('${domainUrl}/getcategory#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
-// }
+Future getCategoryListData() async { // 商品列表
+  return await HttpUtil().post('${domainUrl}/getcategory#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D');
+}
 
 Future getCategoryList(Map data) async { // 商品分类的商品列表
   return await HttpUtil().post('${domainUrl}/getmailgoods#!method=POST&queryParameters=%5B%5D&body=&headers=%5B%5D', data: data);

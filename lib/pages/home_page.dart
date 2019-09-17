@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_jinrizaixian/http/http_url.dart';
+import 'package:flutter_jinrizaixian/routes/application.dart';
 import 'package:flutter_jinrizaixian/widget/MyDrawer.dart';
 import 'package:flutter_jinrizaixian/widget/SwiperWt.dart';
 import 'package:flutter_jinrizaixian/widget/TopNavWt.dart';
@@ -19,6 +20,7 @@ class HomePage extends StatelessWidget {
             icon: Icon(Icons.search),
             onPressed: () {
               print('search');
+              Application.router.navigateTo(context,'/search');
             }
           ),
         ],
