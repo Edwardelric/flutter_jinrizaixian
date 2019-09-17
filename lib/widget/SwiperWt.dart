@@ -10,17 +10,11 @@ class SwiperWt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: ScreenUtil().setHeight(300),
-      color: Colors.grey,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            onTap: () {
-              print(index);
-            },
-            child: Image.network(
-              '${swiperList[index]}',
-              fit: BoxFit.cover
-            ),
+          return Image.network(
+            '${swiperList[index]}',
+            fit: BoxFit.cover
           );
         },
         itemCount: swiperList.length,

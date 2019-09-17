@@ -15,7 +15,7 @@ class _MyDrawerState extends State<MyDrawer> {
   final String imgUrl = 'lib/assets/imgs/timg.jpeg';
   final String xiUrl = 'lib/assets/imgs/xi.jpeg';
   final String teUrl = 'lib/assets/imgs/te.jpeg';
-  final String jinUrl = 'lib/assets/imgs/sao.jpg';
+  final String jinUrl = 'lib/assets/imgs/jin.jpeg';
   @override
   Widget build(BuildContext context) {
     return SmartDrawer(
@@ -29,7 +29,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 print('currentAccountPicture');
               },
               child: CircleAvatar(
-                backgroundImage: NetworkImage('https://img.alicdn.com/tps/i4/TB1e.ipe4n1gK0jSZKPSutvUXXa.jpg_q90_.webp'),
+                backgroundImage: AssetImage('$xiUrl'),
               ),
             ),
             otherAccountsPictures: <Widget>[
